@@ -16,8 +16,7 @@ var ListCmd = &cobra.Command{
 list all snapshots that match your tags. The tag flag must be used. --tags or -t
 with a comma separated list of tags to match (ex. --tags KEY=VALUE,KEY=VALUE).`,
 	Run: func(cmd *cobra.Command, args []string) {
-		// NotImplemented()
-		listTest(tags)
+		listSnaps(tags)
 	},
 }
 
@@ -26,8 +25,8 @@ func init() {
 	ListCmd.MarkFlagRequired("tags")
 }
 
-func listTest(tags []string) {
-	client := sess.GetClient(&awsRegion)
+func listSnaps(tags []string) {
+	client := sess.GetClient(&awsRegion, &awsProfile)
 	snaps := snapshot.Get(client, tags)
 	for _, v := range snaps {
 		fmt.Println(*v.SnapshotId, *v.Description)
