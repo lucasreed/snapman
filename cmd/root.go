@@ -51,5 +51,5 @@ func NotImplemented() {
 
 // TagsFlag will apply the tag flag to a given command, this is not a global flag
 func TagsFlag(c *cobra.Command) {
-	c.Flags().StringSliceVarP(&tags, "tags", "t", []string{}, "REQUIRED. comma separated tags to match, ex. -t key=value,key=value")
+	c.Flags().StringSliceVarP(&tags, "tags", "t", []string{}, "comma separated tags to match, ex. -t key=value,key=value")
 }

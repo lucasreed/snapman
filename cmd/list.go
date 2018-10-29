@@ -22,7 +22,6 @@ with a comma separated list of tags to match (ex. --tags KEY=VALUE,KEY=VALUE).`,
 
 func init() {
 	TagsFlag(ListCmd)
-	ListCmd.MarkFlagRequired("tags")
 }
 
 func listSnaps(tags []string) {
